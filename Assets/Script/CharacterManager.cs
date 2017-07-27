@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CharacterManager : Singleton<CharacterManager>
 {
-    List<GameObject> lCharacter;
+    public List<GameObject> lCharacter;
 
     public override void Init()
     {
         lCharacter = new List<GameObject>();
     }
 
-    public void AddCharacter()
+    public void AddCharacter(GameObject Character)
     {
-
+        lCharacter.Add(Character);
     }
 }

@@ -5,20 +5,21 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    protected GameObject  gMonster;       // data of Monster now
-    protected Vector2     vAngle;         // angle between monster
-    protected float       fDistance;      // distance between monster
-    protected float       fCurrentDelay;  // attack delay time
-    protected float       fCharge;        // charging time
-    protected bool        bCanAttack;     // can attack now
-    protected bool        bCharging;      // is charging now
+    protected GameObject    gMonster;       // data of Monster now
+    protected GameObject[]  gCharacter;     // data of Ally Character
+    protected Vector2       vAngle;         // angle between monster
+    protected float         fDistance;      // distance between monster
+    protected float         fCurrentDelay;  // attack delay time
+    protected float         fCharge;        // charging time
+    protected bool          bCanAttack;     // can attack now
+    protected bool          bCharging;      // is charging now
 
-    protected int         iHp;            // hp
-    protected int         iAtk;           // atk
-    protected float       fRange;         // strike range / short = 2, middle = 4, long = 6
-    protected float       fPower;         // strike power / short = 1000, middle = 500, long = 10
-    protected float       fDelay;         // attack delay
-    protected float       fCritical;      // critical rate
+    protected int           iHp;            // hp
+    protected int           iAtk;           // atk
+    protected float         fRange;         // strike range / short = 2, middle = 4, long = 6
+    protected float         fPower;         // strike power / short = 1000, middle = 500, long = 10
+    protected float         fDelay;         // attack delay
+    protected float         fCritical;      // critical rate
 
     // MonoBehaviour
 
@@ -60,7 +61,7 @@ public class Character : MonoBehaviour
             gMonster.GetComponent<Rigidbody2D>().AddForce(vAngle * fPower);
 
             bCanAttack = false;
-            gMonster.GetComponent<Monster>().SetHp()
+            //gMonster.GetComponent<Monster>().SetHp()
         }
     }
 
@@ -100,11 +101,54 @@ public class Character : MonoBehaviour
         fCritical   = 0.5f;
     }
 
+    protected void SetBuff(int index)
+    {
+        switch(index)
+        {
+            case 1:
+
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    public void Damaged(int damage)
+    {
+        iHp -= damage;
+    }
+
+    public void Healed(int heal)
+    {
+        iHp += heal;
+    }
+
+    public void AtkBoost(int value)
+    {
+        iAtk += value;
+    }
+
+    // ----- virtual -----
+
+    protected virtual void Active1() { }
+    protected virtual void Active2() { }
+    protected virtual void Active3() { }
+
+    protected virtual void Passive1() { }
+    protected virtual void Passive2() { }
+    protected virtual void Passive3() { }
+
     // ----- Set -----
 
     public void SetMonster(GameObject monster)
     {
         gMonster = monster;
+    }
+
+    public void SetCharacter(GameObject[] Character)
+    {
+        gCharacter = Character;
     }
 
     public void SetHp(int hp)

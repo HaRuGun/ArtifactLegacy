@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    private GameObject  gCharacter;     // data of Character
-    private int         iHp;            // hp
-    private int         iAtk;           // atk
-    private float       fSpeed;         // moving speed
-    private float       fStrikeRange;   // monster's strike range
+    private GameObject[]    gCharacter;     // data of Character
+    private int             iHp;            // hp
+    private int             iAtk;           // atk
+    private float           fSpeed;         // moving speed
+    private float           fStrikeRange;   // monster's strike range
 
-    private Vector3     vResetPosition; // Reset Position
+    private Vector3         vResetPosition; // Reset Position
 
     // MonoBehaviour
 
@@ -44,9 +44,29 @@ public class Monster : MonoBehaviour
         fStrikeRange = 1.0f;
     }
 
+    protected void SetDebuff(int index)
+    {
+        switch(index)
+        {
+            case 1:
+
+                break;
+            default:
+
+                break;
+        }
+    }
+
+
+
+    public void Damaged(int damage)
+    {
+        iHp -= damage;
+    }
+
     // ----- Set -----
 
-    public void SetCharacter(GameObject Character)
+    public void SetCharacter(GameObject[] Character)
     {
         gCharacter = Character;
     }
