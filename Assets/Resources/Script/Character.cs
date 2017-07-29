@@ -69,13 +69,7 @@ public class Character : MonoBehaviour
     {
         bCharging = false;
     }
-
-    protected void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, fRange);
-    }
-
+    
     // Custom Method
 
     public void Init()

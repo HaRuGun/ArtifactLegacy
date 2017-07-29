@@ -36,7 +36,7 @@ public class Monster : MonoBehaviour
     public void Init()
     {
         gCharacter = null;
-        vResetPosition = new Vector3(0.0f, 8.0f);
+        vResetPosition = new Vector3(0.0f, 6.0f);
 
         iHp = 100;
         iAtk = 10;
